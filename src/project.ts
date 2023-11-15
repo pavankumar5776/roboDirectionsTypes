@@ -27,11 +27,11 @@ export async function readFile (inputFile: string): Promise<RoboDirectionRes> {
 
 export async function writeFile(outputFile: string) {
     try{
-        let writeContentJson: RoboDirectionRes = await readFile('./src/input.txt');
+        let writeContentJson: RoboDirectionRes = await readFile('./src/test/input.txt');
         let writeContent: string = Object.values(writeContentJson).join(' ');
         await fsPromises.writeFile(outputFile, writeContent);
     }catch(error){
         throw new Error('Failed writing file.');
     }
 }
-writeFile('./src/output.txt');
+writeFile('./src/test/output.txt');
